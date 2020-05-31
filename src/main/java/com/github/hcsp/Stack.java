@@ -21,9 +21,7 @@ public class Stack {
         if (size == 0) {
             throw new EmptyStackException();
         }
-        Object popElement = elements[--size];
-        elements[size] = null;
-        return popElement;
+        return elements[--size];
     }
 
     /**
