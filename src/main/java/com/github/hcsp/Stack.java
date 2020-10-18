@@ -21,7 +21,10 @@ public class Stack {
         if (size == 0) {
             throw new EmptyStackException();
         }
-        return elements[--size];
+        //弹出对象进行内存清空
+        Object object = elements[--size];
+        elements[size] = null;
+        return object;
     }
 
     /**
