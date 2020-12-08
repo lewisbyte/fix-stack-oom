@@ -23,7 +23,8 @@ public class Stack {
         }
         int index = --size;
         Object obj = elements[index];
-        elements[index] = null;// help gc
+        // help gc
+        elements[index] = null;
         return obj;
     }
 
