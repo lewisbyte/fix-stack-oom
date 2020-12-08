@@ -4,9 +4,9 @@ import java.util.Arrays;
 import java.util.EmptyStackException;
 
 public class Stack {
+    private static final int DEFAULT_INITIAL_CAPACITY = 16;
     private Object[] elements;
     private int size = 0;
-    private static final int DEFAULT_INITIAL_CAPACITY = 16;
 
     public Stack() {
         elements = new Object[DEFAULT_INITIAL_CAPACITY];
@@ -21,7 +21,10 @@ public class Stack {
         if (size == 0) {
             throw new EmptyStackException();
         }
-        return elements[--size];
+        int index = --size;
+        Object obj = elements[index];
+        elements[index] = null;// help gc
+        return obj;
     }
 
     /**
